@@ -8,7 +8,7 @@
     ]
   },
   "files": [
-    "src/test.ts",
+    "src/karma.setup.ts",
     "src/polyfills.ts"
   ],
   "include": [
