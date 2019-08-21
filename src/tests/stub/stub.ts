@@ -37,3 +37,24 @@ function setStubAttributes(initialValues: { [ attribute: string ]: any }) {
 
   Object.keys(initialValues).forEach(attribute => this[attribute] = initialValues[attribute]);
 }
+
+export function stubWindowStorage(property: 'sessionStorage' | 'localStorage', values = {}) {
+  Object.defineProperty(window, property, {
+      configurable: true,
+      writable: true,
+      value: {
+        setItem: jest.fn(),
+        getItem: jest.fn(),
+        removeItem: jest.fn(),
+      }
+  });
+
+  Object.keys(values).forEach(key => {
+    const value = values[key];
+    window[property][key] = jest.fn().mockReturnValue(value);
+  })
+}
+
+export function stubWindowNavigator(key: string, value: string) {
+  jest.spyOn(global['navigator'], key, 'get').mockReturnValue(value);
+}
