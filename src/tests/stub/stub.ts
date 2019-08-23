@@ -1,44 +1,64 @@
-import { Type } from '@angular/core';
 import 'jest';
 
-
-export type Stub<T> = { [P in keyof T]: any } & T;
+/*
+ * Providing this type allows the stub and the target object keep signature type discrepancies
+ * without raising linting erros, while still allowing the stub to extend the target object's type.
+ */
+export type Stub<T> = { [Property in keyof T]: any } & T;
 
 /**
- * Creates a stub object.
- * @param { Type<T> | Object } object the class to be stubbed.
+ * Creates a stub of the target object and mocks its attributes.
+ * @param { T } target the class to be stubbed.
  * @param { { [ attribute: string ]: any } } initialValues the class properties to be initialized in the stub.
  */
-export function Stub<T>(object: Type<T> | Object, initialValues?: { [ attribute: string ]: any }) {
-  setStubMethods.call(this, object);
+export function Stub<T>(target: T, initialValues?: { [ attribute: string ]: any }) {
+  setStubMethods.call(this, target);
   setStubAttributes.call(this, initialValues);
 }
 
 /**
- * Sets an object's methods as unimplemented jest spies.
- * @param { ObjectConstructor } object the parent object.
+ * Declares the stub's methods as bare spies.
+ * @param { ObjectConstructor } object the stubbed object.
  */
 function setStubMethods(object: ObjectConstructor) {
-  if (!(object && object.prototype)) {
+  if (!object) {
     return;
   }
 
-  Object.getOwnPropertyNames(object.prototype).forEach(method => this[method] = jest.fn());
+  // handles objects without prototype chain.
+  if (!object.prototype) {
+    Object.keys(object)
+      .forEach((key: string) => {
+        if (typeof object[key] === 'function') {
+          this[key] = jest.fn();
+        }
+      });
+    return
+  }
+
+  // handles objects with prototype chain.
+  Object.getOwnPropertyNames(object.prototype)
+    .forEach((methodName: string) => this[methodName] = jest.fn());
 }
 
 /**
- * Initializes the provided properties in a parent object.
- * @param { { [ attribute: string ]: any } } initialValues the properties to be initialized in the parent object.
+ * Initializes the stub attributes with the provided values.
+ * @param { { [ attribute: string ]: any } } initValues the properties to be initialized in the parent object.
  */
-function setStubAttributes(initialValues: { [ attribute: string ]: any }) {
-  if (!initialValues) {
+function setStubAttributes(initValues: { [ attribute: string ]: any }) {
+  if (!initValues) {
     return;
   }
 
-  Object.keys(initialValues).forEach(attribute => this[attribute] = initialValues[attribute]);
+  Object.keys(initValues)
+    .forEach((attribute: string) => this[attribute] = initValues[attribute]);
 }
 
 export function stubWindowStorage(property: 'sessionStorage' | 'localStorage', values = {}) {
+  if (!property) {
+    return;
+  }
+
   Object.defineProperty(window, property, {
       configurable: true,
       writable: true,
@@ -49,12 +69,17 @@ export function stubWindowStorage(property: 'sessionStorage' | 'localStorage', v
       }
   });
 
-  Object.keys(values).forEach(key => {
-    const value = values[key];
-    window[property][key] = jest.fn().mockReturnValue(value);
-  })
+  Object.keys(values)
+    .forEach((key: string) => {
+      const value = values[key];
+      window[property][key] = jest.fn().mockReturnValue(value);
+    });
 }
 
 export function stubWindowNavigator(key: string, value: string) {
+  if (!key) {
+    return;
+  }
+  
   jest.spyOn(global['navigator'], key, 'get').mockReturnValue(value);
 }
