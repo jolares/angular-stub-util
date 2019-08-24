@@ -1,11 +1,11 @@
 {
-  "name": "ng-jazz",
+  "name": "jazz",
   "version": "1.0.0",
   "description": "ngJazz - an Angular testing library.",
-  "bugs": "https://github.com/UltimateSoftware/ng-jazz/issues",
+  "bugs": "https://github.com/UltimateSoftware/jazz/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/UltimateSoftware/ng-jazz"
+    "url": "https://github.com/UltimateSoftware/jazz"
   },
   "contributors": [
     "Alicia Rodriguez",
