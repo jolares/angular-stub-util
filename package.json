@@ -1,0 +1,29 @@
+{
+  "name": "jazz",
+  "version": "1.0.0",
+  "description": "Ultimate Software's Jazz is a JavaScript Testing Library with an obsession for simplicity, reliability, and good rythm.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jolares/jazz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jolares/jazz/issues"
+  },
+  "homepage": "https://github.com/jolares/jazz#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "3.4.3"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.4"
+  }
+}
