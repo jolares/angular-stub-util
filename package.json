@@ -1,7 +1,7 @@
 {
   "name": "jazz",
   "version": "1.0.0",
-  "description": "Ultimate Software's Jazz is a JavaScript Testing Library with an obsession for simplicity, reliability, and good rythm.",
+  "description": "Jazz is a JavaScript Testing Library with an obsession for simplicity, reliability, and good rythm.",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
