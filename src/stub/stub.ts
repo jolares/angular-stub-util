@@ -4,7 +4,7 @@ import 'jest';
 
 /*
  * This Type allows the Stub and the target object keep signature type discrepancies
- * without raising linting erros, while still allowing the Stub to extend the target object.
+ * without raising linting errors, while still allowing the Stub to extend the target object.
  */
 export type Stub<T> = { [P in keyof T]: T[P] extends (...args: infer U) => infer R ? jest.Mock<R, U> : T[P] } & T;
 
@@ -72,7 +72,7 @@ function setStubAttributes(initValues: { [attribute: string]: any }) {
 }
 
 /**
- * Stubs the actual Window property's methods.
+ * Stubs the Window property methods.
  * @param { WindowProperty} property the Window Object property to stub.
  * @param initValues the values to initialize the Stub Window object's property.
  */

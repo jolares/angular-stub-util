@@ -48,7 +48,6 @@ describe('Stub', () => {
 
     it(`should declare the target-object's methods in Stub as bare spies`, () => {
       // Arrange
-      const targetClassPrototype = Object.getPrototypeOf(SampleTargetClass);
       const expectedMethods = [
         'constructor',
         'attributeGetter',
@@ -219,9 +218,10 @@ describe('Stub', () => {
 
       it(`setItem should create an item in the stubbed session storage object`, () => {
         // Arrange
-        let sesionStorageStub = new Stub(WindowProperty.SessionStorage)
-        window.sessionStorage.setItem('key1', 'value1');
+        let sesionStorageStub = new Stub(WindowProperty.SessionStorage);
 
+        // Act
+        window.sessionStorage.setItem('key1', 'value1');
         const actual = window.sessionStorage.getItem('key1');
 
         // Assert
