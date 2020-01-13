@@ -2,7 +2,14 @@
 
 A JavaScript Testing Library with an obsession for simplicity, reliability, and good rythm.
 
-Jazz's goal is to provide developers with a set of practical, frustration-free testing tools that simplify work, simply work, and seamlessly adopt best practices.
+Jazz's goal is to provide developers with a set of practical, frustration-free testing tools that simplify work and seamlessly adopt best practices.
+
+## Usage
+
+1) Add jazz to your project: `npm install jazz-test --save-dev`
+2) Refer to the [docs](https://github.com/jolares/jazz-test/wiki) for usage & examples.
+
+
 
 ## Dependencies
 
