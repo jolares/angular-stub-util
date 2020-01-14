@@ -1,14 +1,17 @@
 {
   "name": "jazz-test",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Jazz is a JavaScript Testing Library with an obsession for simplicity, reliability, and good rythm.",
   "keywords": [
     "test",
     "angular",
+    "nestjs",
     "typescript"
   ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "publish": "npm run test && npm run build && npm publish",
+    "deploy": "npm run test && npm run build && npm publish",
     "build": "tsc",
     "test": "jest"
   },

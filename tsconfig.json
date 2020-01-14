@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
-		"target": "esnext",
-		"module": "esnext",
+		"target": "es5",
+		"module": "commonjs",
 		"declaration": true,
 		"outDir": "./dist",
 		"typeRoots": [
@@ -13,5 +13,9 @@
 		"allowSyntheticDefaultImports": true
 	},
 	"include": ["src"],
-	"exclude": ["node_modules", "**/*/*.spec.ts"]
+	"exclude": [
+		"node_modules",
+		"**/*/*.spec.ts",
+		"dist"
+	]
 }
