@@ -3,7 +3,7 @@
 		"target": "esnext",
 		"module": "esnext",
 		"declaration": true,
-		"outDir": "./lib",
+		"outDir": "./dist",
 		"typeRoots": [
 			"node_modules/@types"
 		],
@@ -13,5 +13,5 @@
 		"allowSyntheticDefaultImports": true
 	},
 	"include": ["src"],
-	"exclude": ["node_modules", "**/__tests__/*"]
+	"exclude": ["node_modules", "**/*/*.spec.ts"]
 }

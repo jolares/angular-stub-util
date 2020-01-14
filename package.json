@@ -2,17 +2,29 @@
   "name": "jazz-test",
   "version": "1.0.0",
   "description": "Jazz is a JavaScript Testing Library with an obsession for simplicity, reliability, and good rythm.",
-  "main": "index.js",
+  "keywords": [
+    "test",
+    "angular",
+    "typescript"
+  ],
   "scripts": {
+    "publish": "npm run test && npm run build && npm publish",
     "build": "tsc",
     "test": "jest"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jolares/jazz-test.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Joaquin Lares",
+  "contributors": [
+    "Alicia Rodriguez <rodriguez.aliciaf@gmail.com>",
+    "Jo Lares"
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jolares/jazz-test/issues"
   },
