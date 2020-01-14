@@ -9,8 +9,6 @@ Jazz's goal is to provide developers with a set of practical, frustration-free t
 1) Add jazz to your project: `npm install jazz-test --save-dev`
 2) Refer to the [docs](https://github.com/jolares/jazz-test/wiki) for usage & examples.
 
-
-
 ## Dependencies
 
 - [Node](https://nodejs.org): tested on v13.5.0
@@ -23,5 +21,5 @@ Jazz's goal is to provide developers with a set of practical, frustration-free t
 
 ## Contribute
 
-- [Log a Bug/Issue](https://github.com/UltimateSoftware/jazz/issues)
-- Contribute: just create a branch named with the prefix `feat-`, `fix-`, `refact-`, or `docs-` and raise the Pull Request to the latest version branch!
+- [Report a Bug](https://github.com/jolares/jazz-test/issues)
+- Develop: create a branch with the name prefix `feat-`, `fix-`, `refact-`, or `docs-` and create a Pull Request onto the most recent jazz-test release branch (`v.x.x`)!
