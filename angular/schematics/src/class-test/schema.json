@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsStarter",
+  "title": "Options Schema",
+  "type": "object",
+  "properties": {
+    "filePath": {
+      "type": "string",
+      "description": "The file path which you want to generate a test suite for.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What is the file path (relative to the root of the project)?"
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

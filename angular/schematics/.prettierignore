@@ -1,0 +1,3 @@
+*.lock
+sample-projects/**/node_modules
+src/class-test/files

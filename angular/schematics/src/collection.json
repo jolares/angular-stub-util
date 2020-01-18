@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "class-test": {
+      "description": "Generates a class test for the given class.",
+      "factory": "./class-test/index#classTest",
+      "schema": "./class-test/schema.json"
+    }
+  }
+}

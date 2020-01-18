@@ -1,0 +1,49 @@
+{
+  "name": "angular-test-schematics",
+  "version": "0.0.0",
+  "description": "Angular testing schematics",
+  "scripts": {
+    "setup": "npm install && npm run setup:sandbox",
+    "setup:sandbox": "cd ../sample-projects/tour-of-heroes && npm install",
+    "build": "tsc -p tsconfig.json",
+    "build:clean:launch": "npm run build && npm run clean:launch",
+    "clean": "git checkout HEAD -- ../sample-projects/tour-of-heroes && git clean -f -d ../sample-projects/tour-of-heroes",
+    "clean:launch": "npm run clean && npm run launch",
+    "launch": "cd ../sample-projects/tour-of-heroes && ng g jack-schematic:class-test",
+    "link:schematic": "npm link && cd ../sample-projects/tour-of-heroes && npm link jack-schematic",
+    "publish": "npm run build",
+    "test:schematic": "npm run build:clean:launch",
+    "test:sandbox": "cd ../sample-projects/tour-of-heroes && npm run lint && npm run test && npm run e2e && npm run build",
+    "test:unit": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^7.3.8",
+    "@angular-devkit/schematics": "^7.3.8",
+    "@schuchard/prettier": "3.0.2",
+    "@types/jasmine": "^3.3.12",
+    "@types/node": "^11.13.4",
+    "jasmine": "^3.4.0",
+    "typescript": "~3.4.3"
+  },
+  "devDependencies": {
+    "husky": "1.3.1",
+    "lint-staged": "8.1.5",
+    "prettier": "1.17.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,md,ts}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
